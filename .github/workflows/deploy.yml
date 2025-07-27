@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.HUGO_PAT_TOKEN }}
           publish_dir: ./hugo-memoryleak/public
           external_repository: namimisss/namimisss.github.io  #
           publish_branch: main  #
