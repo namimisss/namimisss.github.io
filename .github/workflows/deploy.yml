@@ -2,36 +2,38 @@ name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # branch
+    branches:
+      - main  # 根据你的源码分支修改
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
 
-      - name: Set up Hugo
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.125.0'  #
+          hugo-version: '0.146.0'   # PaperMod 要求最低版本
           extended: true
 
-      - name: Build with Hugo
+      - name: Build site with Hugo
         working-directory: ./hugo-memoryleak
         run: |
-	   hugo --minify
-	   touch public/.nojekyll
+          hugo --minify
+          touch public/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.HUGO_PAT_TOKEN }}
+          personal_token: ${{ secrets.HUGO_PAT_TOKEN }}  # 用你自己设置的 PAT Secret
+          external_repository: namimisss/namimisss.github.io  # 替换为你的发布仓库
           publish_dir: ./hugo-memoryleak/public
-          external_repository: namimisss/namimisss.github.io  #
-          publish_branch: main  #
+          publish_branch: main
+          commit_message: "Deploy Hugo site via GitHub Actions"
 
