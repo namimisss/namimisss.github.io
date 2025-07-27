@@ -1,6 +1,4 @@
 [submodule "hugo-memoryleak/themes/PaperMod"]
 	path = hugo-memoryleak/themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod
-[submodule "hugo-memoryleak/themes/paper"]
-	path = hugo-memoryleak/themes/paper
-	url = https://github.com/nanxiaobei/hugo-paper
+
