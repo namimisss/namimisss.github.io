@@ -1,5 +1,0 @@
-baseURL = 'http://blog.memoryleak.top/'
-languageCode = 'en-us'
-title = 'Memory Leak'
-theme = "PaperMod"
-googleAnalytics = ""
